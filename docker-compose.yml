@@ -1,0 +1,21 @@
+services:
+  frontend:
+    image: ghcr.io/cucharoth/identity_recognition_front:latest
+    container_name: identity-recognition-backend
+    ports:
+      - "33002:80"
+    networks:
+      - identity-recognition-network
+
+  backend:
+    image: ghcr.io/cucharoth/identity_recognition:latest
+    container_name: identity_recognition_backend
+    ports:
+      - "33001:33001"
+    networks:
+      - identity-recognition-network
+
+networks:
+  identity-recognition-network:
+    name: identity-recognition-network
+    driver: bridge
