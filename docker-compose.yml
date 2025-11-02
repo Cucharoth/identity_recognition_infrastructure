@@ -3,7 +3,9 @@ services:
     image: ghcr.io/cucharoth/identity_recognition_front:latest
     container_name: identity-recognition-frontend
     ports:
-      - "33002:80"
+      - "80:80"
+    environment:
+      - API_URL=${API_URL}
     networks:
       - identity-recognition-network
 
